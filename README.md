@@ -18,12 +18,17 @@ Scope of the Solution
 👉Required Component:
 
 Hardware:
+
 •	ESP32 Development Board
+
 •	MPU6050 Sensor Module
+
 •	OLED Display 
+
 •	Jumper wires
 
 Software:
+
 •	Wokwi (for simulation)
 
 
@@ -32,7 +37,6 @@ Software:
 ![image](https://github.com/user-attachments/assets/ff5884b1-5181-4abc-a7c2-a6beceeb47ec)
 
 ![image](https://github.com/user-attachments/assets/9128d8bb-8248-43db-a388-ec990b7ca4aa)
-
 
 👉Simulated Circuit:
 
