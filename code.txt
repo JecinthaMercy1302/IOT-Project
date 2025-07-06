@@ -1,0 +1,57 @@
+#include <Wire.h>
+#include <Adafruit_Sensor.h>
+#include <Adafruit_MPU6050.h>
+#include <Adafruit_GFX.h>
+#include <Adafruit_SSD1306.h>
+
+#define SCREEN_WIDTH 128
+#define SCREEN_HEIGHT 64
+
+Adafruit_MPU6050 mpu;
+Adafruit_SSD1306 display(SCREEN_WIDTH, SCREEN_HEIGHT, &Wire, -1);
+
+void setup() {
+  Serial.begin(115200);
+
+  if (!mpu.begin()) {
+    Serial.println("Failed to find MPU6050 chip");
+    while (1) {
+      delay(10);
+    }
+  }
+  Serial.println("Found MPU6050 chip");
+
+  mpu.setAccelerometerRange(MPU6050_RANGE_2_G);
+  mpu.setGyroRange(MPU6050_RANGE_250_DEG);
+  mpu.setFilterBandwidth(MPU6050_BAND_21_HZ);
+
+  if (!display.begin(SSD1306_SWITCHCAPVCC, 0x3C)) {
+    Serial.println(F("SSD1306 allocation failed"));
+    for (;;);
+  }
+  display.display();       
+  delay(2000);             
+  display.clearDisplay();  
+  display.setTextSize(1);
+  display.setTextColor(SSD1306_WHITE);
+  display.println(F("MPU6050 and OLED"));
+  display.display();  
+  delay(1000);
+}
+void loop() {
+    sensors_event_t a, g, temp; 
+    mpu.getEvent(&a, &g, &temp); 
+    display.clearDisplay();
+    display.setCursor(0, 0);
+
+    display.print("AccX: "); display.println(a.acceleration.x);
+    display.print("AccY: "); display.println(a.acceleration.y);
+    display.print("AccZ: "); display.println(a.acceleration.z);
+
+    display.print("GyroX: ");  display.println(g.gyro.x);
+    display.print("GyroY: ");  display.println(g.gyro.y);
+    display.print("GyroZ: ");  display.println(g.gyro.z);
+
+    display.display(); 
+    delay(500); 
+}
