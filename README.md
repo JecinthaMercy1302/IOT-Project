@@ -42,9 +42,9 @@ Software:
 
 🔗 https://wokwi.com/projects/435710853497910273
 
-👉Video of the Demo:
+👉Demo video:
 
-🔗 https://drive.google.com/file/d/11eheft8itAH1bYas1ZkCGxdEMO4LNKjc/view?usp=sharing
+🔗 https://drive.google.com/file/d/17jaJ-W2UNStZGNr6MZBZWFiBWDh9L_pn/view?usp=sharing
 
 
 
